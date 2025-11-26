@@ -16,7 +16,6 @@ public class Loot {
         Arme barredeFer = new Arme(1, "Barre de Fer", "Une barre de fer rouillée mais qui a malgré tout l'air solide",1, 5, 8);
         Arme harpon = new Arme(2, "Harpon", "Un harpon qui servait ... surement à quelque chose. La flèche revient automatiquement à l'aide d'un système de poulie.",1, 8, 10);
         Arme machette = new Arme(3, "Machette", "Une machette à l'air robuste et bien aiguisé",1, 4, 10 );
-
     }
 
     public void initItem() {
