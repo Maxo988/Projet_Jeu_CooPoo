@@ -7,6 +7,9 @@ public class Monstre {
     protected int maxDmg;
     protected int minDmg;
     protected String description;
+    /*
+    test push github
+     */
 
     public Monstre(String nom, int maxHealth, int maxDmg, int minDmg, String description) {
         this.nom = nom;
