@@ -5,8 +5,8 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class Joueur {
-    private int currentHealth;
+    private int pv;
     private int maxHealth;
-    private Arme arme = Fist;
+    private Arme weapon;
 
 }
