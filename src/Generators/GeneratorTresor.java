@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 public class GeneratorTresor {
 
-    private ArrayList<Integer> Num;
+    private ArrayList<Integer> Num = new ArrayList<Integer>();;
     private int etage;
     public GeneratorTresor()
     {
-        Num = new ArrayList<Integer>();
+
         for(int i=0; i<4; i++)
         {
             Num.add(i);
@@ -27,8 +27,26 @@ public class GeneratorTresor {
     public int tirage(int etage)
     {
         Random randomGenerator = new Random();
-        int choixTresor = randomGenerator.nextInt(4);
-        return(choixTresor);
+        //switch(etage)
+        //case 1:
+
+
+        int choixTresor = randomGenerator.nextInt(100);
+
+        System.out.println("random = "+choixTresor);
+
+        if(choixTresor < 25)
+        {
+            return(0);
+        }
+        else if(choixTresor < 50)
+        {
+            return(1);
+        }
+        else if(choixTresor < 75)
+            return(2);
+        else
+            return(3);
     }
 
 }
