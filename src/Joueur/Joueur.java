@@ -9,4 +9,7 @@ public class Joueur {
     private int maxHealth;
     private Arme weapon;
 
+
+    //Tet Marie
+
 }
