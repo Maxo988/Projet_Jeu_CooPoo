@@ -8,5 +8,4 @@ public class Joueur {
     private int pv;
     private int maxHealth;
     private Arme weapon;
-
 }
