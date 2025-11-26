@@ -5,3 +5,7 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 
+/misc.xml
+/modules.xml
+/inspectionProfiles/Project_Default.xml
+/vcs.xml
