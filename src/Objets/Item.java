@@ -10,4 +10,12 @@ public  class Item {
         this.nom = Nom;
         this.description = Description;
     }
+
+    public String getNom(){
+        return (nom);
+    }
+
+    public String getDescription(){
+        return (description);
+    }
 }
