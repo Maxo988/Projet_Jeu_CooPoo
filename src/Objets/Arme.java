@@ -1,10 +1,28 @@
 package Objets;
+import Monstres.Monstre;
 
 public class Arme extends Equipement {
-    protected int Degats;
+    protected int degats;
 
     public Arme (String Nom, String Description, int Poids, int Degats) {
         super(Nom, Description, Poids);
-        this.Degats=Degats;
+        this.degats=Degats;
+    }
+
+    public void utiliser(Monstre monstre){
+        if (this.nom = monstre.getPointFaible()) {
+            monstre.perdrePv(degats*1.5);
+            System.out.println("Bien joué, vous avez trouvé son point faible, " +
+                    " le monstre semble vraiment sonné par votre attaque.");
+        }
+        else {
+            monstre.perdrePv(degats);
+            System.out.println("Votre attaque a fonctionné mais aurait été plus efficace avec " +
+                    " une autre arme".);
+        }
+    }
+
+    public int getDegats() {
+        return degats;
     }
 }
