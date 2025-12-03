@@ -1,10 +1,10 @@
 package Objets;
 
-public class Arme extends Item {
-    protected int Damage;
+public class Arme extends Equipement {
+    protected int Degats;
 
-    public Arme (String Nom, String Description, int Damage) {
-        super(Nom, Description);
-        this.Damage=Damage;
+    public Arme (String Nom, String Description, int Poids, int Degats) {
+        super(Nom, Description, Poids);
+        this.Degats=Degats;
     }
 }
