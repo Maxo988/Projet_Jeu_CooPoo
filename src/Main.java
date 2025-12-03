@@ -10,7 +10,7 @@ public class Main {
     private boolean fin = false;
 
     public static void main(String[] args){
-        jeu = new Main();
+        Main jeu = new Main();
         jeu.lancerJeu();
     }
 
