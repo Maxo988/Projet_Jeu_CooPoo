@@ -1,22 +1,75 @@
 package Monstres;
+import Objets.Item;
+import Joueur.Joueur;
 
-public class Monstre {
+
+public class Monstre
+{
     protected String nom;
-    protected int currentHealth;
-    protected int maxHealth;
-    protected int maxDmg;
-    protected int minDmg;
+    protected int pv;
+    protected int pvMax;
+    protected int degats;
     protected String description;
-    /*
-    test push github
-     */
+    protected String pointFaible;
+    protected Comportement comportement;
+    protected String infoSpes;
+    protected int poids;
 
-    public Monstre(String nom, int maxHealth, int maxDmg, int minDmg, String description) {
+    public Monstre(String nom, int pvMax, int degats, String description, String item, Comportement comp, String infos, int poids)
+    {
         this.nom = nom;
-        this.currentHealth = maxHealth;
-        this.maxHealth = maxHealth;
-        this.maxDmg = maxDmg;
-        this.minDmg = minDmg;
+        this.pvMax = pvMax;
+        this.pv = pvMax;
+        this.degats = degats;
         this.description = description;
+        this.pointFaible = item;
+        this.comportement = comp;
+        this.infoSpes = infos;
+        this.poids = poids;
+    }
+
+    public String getPointFaible()
+    {
+        return(pointFaible);
+    }
+
+    public String getNom()
+    {
+        return nom;
+    }
+
+    public int pvMax()
+    {
+        return pvMax;
+    }
+
+    public int getDegats()
+    {
+        return degats;
+    }
+
+    public int getPoids()
+    {
+        return poids;
+    }
+
+    public int getPv()
+    {
+        return pv;
+    }
+
+    public void perdrePv(int degats)
+    {
+        pv = -degats;
+    }
+
+    public void attaquer(Joueur joueur)
+    {
+        joueur.perdrePv(degats);
+    }
+
+    public void visuClassique()
+    {
+        /* à définir */
     }
 }
