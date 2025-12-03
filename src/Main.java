@@ -10,7 +10,7 @@ public class Main {
     private boolean fin = false;
 
     public static void main(String[] args){
-        jeu = new Main();
+        Main jeu = new Main();
         jeu.lancerJeu();
     }
 
@@ -105,7 +105,7 @@ public class Main {
             System.out.println("1 - Utiliser un objet");
             System.out.println("2 - Consulter le bestiaire ");
             System.out.println("3 - Frapper à mains nues ");
-            System.out.println("3 - Fuir le combat ");
+            // System.out.println("3 - Fuir le combat ");
             String rep = entree.nextLine();
 
             switch (rep) {
