@@ -12,7 +12,6 @@ public class GeneratorTresor {
 
     public GeneratorTresor()
     {
-
         for(int i=0; i<4; i++)
         {
             Num.add(i);
