@@ -2,6 +2,7 @@ import Joueur.Joueur;
 import Environement.Vaisseau;
 import Monstres.Monstre;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
     private Vaisseau vaisseau;
@@ -119,13 +120,16 @@ public class Main {
         this.fin = true;
     }
     private void CinematiqueDebut() {
+        // Clarisse
         System.out.println("cinem d'intro");
     }
     private void CinematiqueGameOver() {
+        // Clarisse
         System.out.println("cinem de fin, mort");
         quitterJeu();
     }
     private void CinematiqueFin() {
+        // Clarisse
         System.out.println("cinem de fin you win");
         quitterJeu();
     }
