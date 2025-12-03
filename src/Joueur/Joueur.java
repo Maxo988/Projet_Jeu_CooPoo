@@ -2,9 +2,11 @@ package Joueur;
 import Monstres.Monstre;
 import Tresors;
 import Environement.Salle;
+import Objets.Lore;
+import Objets.InfosMonstre;
+import Objets.Equipement;
+
 import java.util.Scanner;
-
-
 import java.util.Random;
 import java.util.ArrayList;
 
@@ -22,7 +24,8 @@ public class Joueur {
 
     public Joueur(){
         pv = 100;
-        oxygene = 100;
+        oxygeneActuel = 100;
+        oxygeneTotal = 100;
 
         ArrayList<Equipement> equipement = new ArrayList<Equipement>();
         // remplir cette liste avec tous les objets générés et le booleen obtenu = False
@@ -39,8 +42,11 @@ public class Joueur {
     public int getPv() {
         return this.pv;
     }
-    public int getOxygene() {
-        return oxygene;
+    public int getOxygeneActuel() {
+        return oxygeneActuel;
+    }
+    public int getOxygeneTotal() {
+        return oxygeneTotal;
     }
     public int getNbCles() {
         return nbCles;
@@ -66,7 +72,7 @@ public class Joueur {
         oxygeneTotal += gain;
     }
     public void resetOxygene() {
-        oxygeneActuel = oxygeneTotal;
+        oxygeneActuel = getOxygeneTotal();
     }
 
     public boolean utiliserCle(){
