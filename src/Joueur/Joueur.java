@@ -10,7 +10,8 @@ import java.util.ArrayList;
 
 public class Joueur {
     private int pv;
-    private int oxygene;
+    private int oxygeneActuel;
+    private int oxygeneTotal;
     private ArrayList <Equipement> equipement;
     private ArrayList <InfosMonstre> bestiaire;
     private ArrayList <Lore> histoire;
@@ -36,7 +37,7 @@ public class Joueur {
     }
 
     public int getPv() {
-        return pv;
+        return this.pv;
     }
     public int getOxygene() {
         return oxygene;
@@ -54,9 +55,20 @@ public class Joueur {
     public void perdrePv(int perte) {
         pv -= perte;
     }
-    public void perdreOxygene(int perte) {
-        oxygene -= perte;
+    public void gagnerPv(int gain) {
+        pv += gain;
     }
+
+    public void perdreOxygene(int perte) {
+        oxygeneActuel -= perte;
+    }
+    public void gagnerOxygene(int gain) {
+        oxygeneTotal += gain;
+    }
+    public void resetOxygene() {
+        oxygeneActuel = oxygeneTotal;
+    }
+
     public boolean utiliserCle(){
         if (nbCles > 0){
             nbCles --;
@@ -196,7 +208,9 @@ public class Joueur {
         }
 
         for (Equipement e : equipement){
-            e.Visualiser();
+            if (e.isObtenu()) {
+                e.Visualiser();
+            }
         }
     }
 
