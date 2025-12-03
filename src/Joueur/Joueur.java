@@ -6,8 +6,9 @@ import java.util.ArrayList;
 
 public class Joueur {
     private int pv;
-    private int nivOxygene;
+    private int maxHealth;
     private Arme weapon;
+
 
     //Tet Marie
     //Ouiiiiiii !!!
