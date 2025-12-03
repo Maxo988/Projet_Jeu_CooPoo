@@ -2,6 +2,7 @@ package Monstres;
 import Objets.Item;
 import Joueur.Joueur;
 
+
 public class Monstre
 {
     protected String nom;
