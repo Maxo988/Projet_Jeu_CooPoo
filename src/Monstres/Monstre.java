@@ -32,6 +32,26 @@ public class Monstre
         return(pointFaible);
     }
 
+    public String getNom()
+    {
+        return nom;
+    }
+
+    public int pvMax()
+    {
+        return pvMax;
+    }
+
+    public int getDegats()
+    {
+        return degats;
+    }
+
+    public int getPoids()
+    {
+        return poids;
+    }
+
     public int getPv()
     {
         return pv;
@@ -49,7 +69,6 @@ public class Monstre
 
     public void visuClassique()
     {
-        System.out.println()
-        System.out.println(description);
+        /* à définir */
     }
 }
