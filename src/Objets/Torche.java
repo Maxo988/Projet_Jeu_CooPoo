@@ -12,6 +12,7 @@ public class Torche extends Equipement{
     }
     
     public void utiliserC() {
+        // à finir : torche si point faible va faire fuir le monstre et mettre fin au combat
         System.out.println("Vous essayez d'éblouir le monstre");
     }
 }

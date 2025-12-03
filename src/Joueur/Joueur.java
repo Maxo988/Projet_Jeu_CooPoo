@@ -1,10 +1,7 @@
 package Joueur;
 import Monstres.Monstre;
-import Tresors;
-import Environement.Salle;
-import Objets.Lore;
-import Objets.InfosMonstre;
-import Objets.Equipement;
+import Objets.*;
+import Environement.*;
 
 import java.util.Scanner;
 import java.util.Random;
@@ -102,7 +99,7 @@ public class Joueur {
         System.out.println("-------- Vos objets --------");
         System.out.println("0 - Ne pas utiliser d'objet ");
         for (Equipement e : equipement){
-            if (e.isObtenu){
+            if (e.isObtenu()){
                 cpt ++;
                 System.out.println(cpt +" "+ e.getNom());
             }
@@ -110,7 +107,7 @@ public class Joueur {
         while (true){
             // rep doit etre un entier, soit 0 pour sortir soit un chiffre entre 1 et la longueur de la liste -> rep - 1 donne l'indice du bon objet
             String rep = entree.nextLine();
-            if (isNumeric(rep)){
+            if (rep.isNumeric()){ // marche pas !!!!
                 if (Integer.parseInt(rep) == 0) {
                     return null;
                 } else if (Integer.parseInt(rep) > 0 && Integer.parseInt(rep) <= cpt) {
@@ -177,7 +174,7 @@ public class Joueur {
 
     }
     // A TESTER
-    private void ouvrirBestaire(){
+    public void ouvrirBestaire(){
         // affiche le contenu du bestiaire
         if (bestiaire.size() == 0) {
             System.out.println("Aucun monstre repertorié.");

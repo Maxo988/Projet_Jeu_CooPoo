@@ -1,4 +1,6 @@
 package Objets;
+import Joueur.Joueur;
+
 import java.util.ArrayList;
 
 public class Equipement extends Objets {
@@ -23,6 +25,10 @@ public class Equipement extends Objets {
                 "contrôle de foule immédiat.", 3, 4));
 
         return (listeEquipement);
+    }
+
+    public void utiliser(Joueur joueur) {
+        System.out.println("Vous utilisez " + this.getNom() + ".");
     }
 
 }

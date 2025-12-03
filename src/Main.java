@@ -1,6 +1,8 @@
 import Joueur.Joueur;
-import Environement.Vaisseau;
-import Monstres.Monstre;
+import Environement.*;
+import Monstres.*;
+import Objets.*;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -83,25 +85,32 @@ public class Main {
         boolean fini = false;
         System.out.println("------- Que le combat commence ! -------");
         while(!fini) {
-            // à chaque tour du combat, si salle immergée l'oxygène baisse. à 0 c game over
-            if (joueur.getSalleActuelle().isImmergee()){
-                joueur.perdreOxygene(10);
-            }
 
-            if (joueur.getPv() == 0 ) {
+            // ------------ Verifications de base ------------
+
+            // à chaque tour du combat, si salle immergée l'oxygène baisse. à 0 c game over
+            if (monstre.getPv() == 0) {
+                System.out.println("Bravo ! Vous avez vaincu le monstre.");
+                fini = true;
+            } else if (joueur.getPv() == 0 ) {
                 System.out.println("Vous avez succombé à vos blessures, c'est fini pour vous.");
                 CinematiqueGameOver();
                 fini = true;
-            } else if (joueur.getOxygene() == 0) {
+            } else if (joueur.getOxygeneActuel() == 0) {
                 System.out.println("Faute d'oxygène, vous sombrez dans l'inconscience... définitivement. " +
                         "C'est fini pour vous.");
                 CinematiqueGameOver();
                 fini = true;
-            } else if (monstre.getPv() == 0) {
-                System.out.println("Bravo ! Vous avez vaincu le monstre.");
+            } else if (joueur.getSalleActuelle().isImmergee()){
+                joueur.perdreOxygene(10);
             }
+
+
+
+            // ------------ Tour du joueur ------------
+
             // actions du combat : utiliser un objet        attaquer (couteau suisse)   fuir()
-            //
+
             System.out.println("Que voulez-vous faire ?");
             System.out.println("1 - Utiliser un objet");
             System.out.println("2 - Consulter le bestiaire ");
@@ -111,9 +120,29 @@ public class Main {
 
             switch (rep) {
                 case "1":
+                    Equipement choix = joueur.utiliserObjet();
+                    choix.utiliser(joueur);
+                    if (choix instanceof Torche && "Torche".equalsIgnoreCase(monstre.getPointFaible())){
+                        // fin du combat, c gagné. Le monstre craint la lumière
+                        System.out.println("Bravo ! Vous avez vaincu le monstre.");
+                        fini = true;
+                    }
+                    break;
+                case "2":
+                    joueur.ouvrirBestaire();
+                    break;
+                case "3":
                     joueur.seDeplacer();
                     break;
             }
+
+            // ------------ Tour du monstre ------------
+
+            // option de fuite si passif
+            if (monstre.getComportement() == "INOFFENSIF"){
+
+            }
+
         }
     }
     private void quitterJeu() {
