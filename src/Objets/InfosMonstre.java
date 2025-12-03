@@ -2,17 +2,28 @@ package Objets;
 import Monstres.Monstre;
 import Joueur.Joueur;
 
-public class InfosMonstre {
+import static java.lang.Boolean.TRUE;
+
+public class InfosMonstre extends Tresor {
     private Monstre monstre;
-    private boolean joueurInforme;
 
-    public InfosMonstre()
+    public InfosMonstre(Monstre monstre)
     {
-
+        super();
+        this.monstre = monstre;
     }
 
-    public String visulatiser()
+    public void visulatiser()
     {
-        return "";
+        if(obtenu)
+            System.out.println(monstre.getNom()+" "+ monstre.getPv()+ " "+ monstre.getComportement() + " " + monstre.getDescription() + " " + monstre.getInfoSpes());
+        else
+            System.out.println(monstre.getNom()+" "+ monstre.getPv()+ " "+ monstre.getComportement() + " " + monstre.getDescription());
+    }
+
+    public void recuperer()
+    {
+        System.out.println("Vous avec récupéré une note.");
+        obtenu = TRUE;
     }
 }
