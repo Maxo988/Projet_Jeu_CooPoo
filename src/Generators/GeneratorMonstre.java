@@ -6,7 +6,7 @@ import Monstres.Comportement;
 import Monstres.Monstre;
 import Monstres.Boss;
 import Objets.Arme;
-import Objets.Item;
+import Objets.Equipement;
 import Environement.Etage;
 
 public class GeneratorMonstre {
@@ -30,6 +30,7 @@ public class GeneratorMonstre {
                         "Ambystoma",
                         1,
                         0,
+                        "Vous tombez sur ce monstre",
                         "Un petit animal a l’air inoffensif et tout mignon … Vous n’allez quand même pas faire ce à quoi je pense ?",
                         "taser",
                         Comportement.INOFFENSIF,
@@ -39,6 +40,7 @@ public class GeneratorMonstre {
                         "Cotylorhiza",
                         100,
                         10,
+                        "Vous tombez sur ce monstre",
                         "Sorte de méduse ressemblant à un oeuf au plat volant",
                         "Lance harpon",
                         Comportement.DEFENSIF,
@@ -47,11 +49,14 @@ public class GeneratorMonstre {
                 Monstre Cornuta = new Monstre(
                         "Cornuta",
                         150,
+                        10,
+                        "Vous tombez sur ce monstre",
                         "Description à définir.",
                         "Torche",
                         Comportement.AGRESSIF,
-                        "Baudroie géante mutée, bien qu’elle émette de la lumière elle même, elle la craint comme la peste."
+                        "Baudroie géante mutée, bien qu’elle émette de la lumière elle même, elle la craint comme la peste.",
                         3);
+
                 listMonstre.add(Ambystoma);
                 listMonstre.add(Cotylorhiza);
                 listMonstre.add(Cornuta);
@@ -72,9 +77,13 @@ public class GeneratorMonstre {
                 }
                 ;break;
             case 2:
+                return null;
                 ;break;
             case 3:
+                return null;
                 ;break;
+            default:
+                return null;
         }
     }
 

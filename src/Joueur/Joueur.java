@@ -1,10 +1,7 @@
 package Joueur;
 import Monstres.Monstre;
-import Tresors;
-import Environement.Salle;
-import Objets.Lore;
-import Objets.InfosMonstre;
-import Objets.Equipement;
+import Objets.*;
+import Environement.*;
 
 import java.util.Scanner;
 import java.util.Random;
@@ -102,7 +99,7 @@ public class Joueur {
         System.out.println("-------- Vos objets --------");
         System.out.println("0 - Ne pas utiliser d'objet ");
         for (Equipement e : equipement){
-            if (e.isObtenu){
+            if (e.isObtenu()){
                 cpt ++;
                 System.out.println(cpt +" "+ e.getNom());
             }
@@ -110,22 +107,23 @@ public class Joueur {
         while (true){
             // rep doit etre un entier, soit 0 pour sortir soit un chiffre entre 1 et la longueur de la liste -> rep - 1 donne l'indice du bon objet
             String rep = entree.nextLine();
-            if (isNumeric(rep)){
-                if (Integer.parseInt(rep) == 0) {
+            try{
+                int r = Integer.parseInt(rep);
+                if (r == 0) {
                     return null;
-                } else if (Integer.parseInt(rep) > 0 && Integer.parseInt(rep) <= cpt) {
+                } else if (r > 0 && r <= cpt) {
                     return equipement.get(cpt-1);
                 } else {
                     System.out.println("Veuillez faire un choix valide.");
                 }
-            } else {
-                System.out.println("Veuillez faire un choix valide.");
+            }
+            catch (NumberFormatException e){
+                System.out.println("Veuillez entrer un nombre.");
             }
         }
-        return null;
     }
 
-    // TODO
+    // TODO : voir comment ça marche via la partie de Mael
     public void seDeplacer(){
         // TODO : Changement de salle :
         //  donner lettre de la sortie voulue : z pour une sortie en face, d pour droite, s pour derrière (toujours là, retourner sur nos pas), q pour gauche
@@ -142,7 +140,7 @@ public class Joueur {
         boolean quitter = false;
 
         System.out.println("-------- Inventaire --------");
-        System.out.println("pv : "+getPv()+"     oxygène : "+getOxygene());
+        System.out.println("pv : "+getPv()+"     oxygène : "+ getOxygeneActuel()+"/"+getOxygeneTotal());
         System.out.println("Que-voulez vous faire ?");
         System.out.println("1 - Voir mes equipements");
         System.out.println("2 - Voir le Bestiaire");
@@ -177,9 +175,9 @@ public class Joueur {
 
     }
     // A TESTER
-    private void ouvrirBestaire(){
+    public void ouvrirBestaire(){
         // affiche le contenu du bestiaire
-        if (bestiaire.size() == 0) {
+        if (bestiaire.isEmpty()) {
             System.out.println("Aucun monstre repertorié.");
         }
         else{
@@ -191,7 +189,7 @@ public class Joueur {
     // A TESTER
     private void ouvrirHistoire(){
         // affiche toutes les notes récupérées sur le Lore
-        if (histoire.size() == 0) {
+        if (histoire.isEmpty()) { // histoire.size() == 0
             System.out.println("Aucune note n'a été trouvée pour l'heure.");
         }
         else{

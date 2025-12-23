@@ -1,5 +1,5 @@
 package Monstres;
-import Objets.Item;
+import Objets.Equipement;
 import Joueur.Joueur;
 
 
@@ -9,23 +9,26 @@ public class Monstre
     protected int pv;
     protected int pvMax;
     protected int degats;
+    protected String introduction;
     protected String description;
+    protected String infoSpes;
     protected String pointFaible;
     protected Comportement comportement;
-    protected String infoSpes;
+
     protected int poids;
 
-    public Monstre(String nom, int pvMax, int degats, String description, String item, Comportement comp, String infos, int poids)
+    public Monstre(String nom, int pv, int degats, String intro, String description, String item, Comportement comp, String infos, int poids)
     {
         this.nom = nom;
-        this.pvMax = pvMax;
-        this.pv = pvMax;
+        this.pv = pv;
+        this.pvMax = pv;
         this.degats = degats;
         this.description = description;
         this.pointFaible = item;
         this.comportement = comp;
         this.infoSpes = infos;
         this.poids = poids;
+        this.introduction = intro;
     }
 
     public String getPointFaible()
@@ -33,14 +36,24 @@ public class Monstre
         return(pointFaible);
     }
 
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public String getIntroduction()
+    {
+        return introduction;
+    }
+
+    public String getInfoSpes()
+    {
+        return infoSpes;
+    }
+
     public String getNom()
     {
         return nom;
-    }
-
-    public int pvMax()
-    {
-        return pvMax;
     }
 
     public int getDegats()
@@ -63,9 +76,31 @@ public class Monstre
         pv = -degats;
     }
 
+    public String getComportement()
+    {
+        return(comportement.name());
+    }
+
     public void attaquer(Joueur joueur)
     {
-        joueur.perdrePv(degats);
+        if(comportement == Comportement.AGRESSIF)
+            joueur.perdrePv(degats);
+        else if(comportement == Comportement.DEFENSIF)
+        {
+            if(pv == pvMax)
+            {
+                System.out.println("Le monstre est sur ses gardes mais ne semble pas vouloir vous attaquer.");
+            }
+            else
+            {
+                System.out.println("Le monstre est devenu violent et vous attaque.");
+                joueur.perdrePv(degats);
+            }
+        }
+        else
+        {
+            System.out.println("Le monstre n'est pas une menace pour vous. Etes-vous sûr de vouloir continuer le combat ?");
+        }
     }
 
     public void visuClassique()
