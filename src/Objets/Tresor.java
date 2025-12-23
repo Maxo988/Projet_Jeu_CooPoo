@@ -1,6 +1,6 @@
 package Objets;
 
-public class Tresor {
+public abstract class Tresor {
     protected boolean obtenu = false;
 
 

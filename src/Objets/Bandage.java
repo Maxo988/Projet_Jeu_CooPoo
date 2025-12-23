@@ -1,5 +1,6 @@
 package Objets;
 import Joueur.Joueur;
+import Monstres.Monstre;
 
 public class Bandage extends Equipement{
     protected int Soin;
@@ -9,9 +10,11 @@ public class Bandage extends Equipement{
         this.Soin = soin = 30;
     }
 
-    public void utiliser(Joueur joueur) {
-        System.out.println("Vous tenter de soigner vos dégats en utilisant les bandages que vous avez " +
-                " trouvés, espérons que cela fonctionne pour vous.");
-        joueur.gagnerPv (30);
+    public void utiliser(Joueur joueur, Monstre monstre) {
+        if (joueur != null) {
+            System.out.println("Vous tenter de soigner vos dégats en utilisant les bandages que vous avez " +
+                    " trouvés, espérons que cela fonctionne pour vous.");
+            joueur.gagnerPv(30);
+        }
     }
 }

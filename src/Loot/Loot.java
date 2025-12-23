@@ -1,6 +1,5 @@
 package Loot;
 import Objets.Arme;
-import Objets.Item;
 
 import java.util.ArrayList;
 

@@ -14,7 +14,7 @@ public class Lore extends Objets{
         System.out.println("Description: " + this.description);
     }
 
-    public ArrayList<Lore> initLore(){
+    public static ArrayList<Lore> initLore(){
         ArrayList<Lore> listeLore = new ArrayList<Lore>();
         listeLore.add(new Lore("nom1", "d1", 3));
         listeLore.add(new Lore("nom2", "d2", 3));

@@ -1,6 +1,6 @@
 package Objets;
 
-public class Objets extends Tresor{
+public abstract class Objets extends Tresor{
     protected String nom;
     protected String description;
     protected int poids;
