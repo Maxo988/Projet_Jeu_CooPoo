@@ -55,49 +55,57 @@ public class Monstre
         this.attaque = attaque;
     }
 
+    /// Retourne les points falibles du monstre.
     ///@return les points faibles du monstre.
     public String getPointFaible()
     {
         return(pointFaible);
     }
 
+    /// Retourne la description du monstre.
     ///@return la description du monstre.
     public String getDescription()
     {
         return description;
     }
 
+    /// Retourne l'introduction du monstre.
     ///@return l'introduction du monstre
     public String getIntroduction()
     {
         return introduction;
     }
 
-    ///@return les informations complète sur le monstre.
+    /// Retourne les informations complètes sur le monstre.
+    ///@return les informations complètes sur le monstre.
     public String getInfoSpes()
     {
         return infoSpes;
     }
 
+    /// Retourne le nom du monstre.
     ///@return le nom du monstre.
     public String getNom()
     {
         return nom;
     }
 
+    /// Retourne le nombre de degats effectué par le monstre.
     ///@return le nombre de degats effectué par le monstre.
     public int getDegats()
     {
         return degats;
     }
 
+    /// Retourne le poids du monstre.
     ///@return le poids du monstre.
     public int getPoids()
     {
         return poids;
     }
 
-    ///@return  les points de vie actuels du monstre.
+    ///Retourne les points de vie actuels du monstre.
+    /// @return les points de vie actuels du monstre.
     public int getPv()
     {
         return pv;
@@ -110,12 +118,14 @@ public class Monstre
         pv = -degats;
     }
 
+    /// Retourne le comportement du monstre.
     ///@return le comportement du monstre.
     public String getComportement()
     {
         return(comportement.name());
     }
 
+    /// Retourne l'attaque que peut effectuer le monstre.
     ///@return l'attaque que peut effectuer le monstre.
     public String getAttaque()
     {
