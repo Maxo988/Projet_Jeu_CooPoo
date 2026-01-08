@@ -14,10 +14,11 @@ public class Monstre
     protected String infoSpes;
     protected String pointFaible;
     protected Comportement comportement;
+    protected String attaque;
 
     protected int poids;
 
-    public Monstre(String nom, int pv, int degats, String intro, String description, String item, Comportement comp, String infos, int poids)
+    public Monstre(String nom, int pv, int degats, String intro, String description, String item, Comportement comp, String infos, int poids, String attaque)
     {
         this.nom = nom;
         this.pv = pv;
@@ -29,6 +30,7 @@ public class Monstre
         this.infoSpes = infos;
         this.poids = poids;
         this.introduction = intro;
+        this.attaque = attaque;
     }
 
     public String getPointFaible()
@@ -79,6 +81,11 @@ public class Monstre
     public String getComportement()
     {
         return(comportement.name());
+    }
+
+    public String getAttaque()
+    {
+        return(attaque);
     }
 
     public void attaquer(Joueur joueur)
